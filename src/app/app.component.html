@@ -9,5 +9,10 @@
   [post]="p"
   (remove)="removePost($event)"
 >
-  <address #author>orhide.ru</address>
+  <address #author>
+    <span *ngIf="p.id < 1000; else admin">orhide.ru</span>
+    <ng-template #admin>sobolev.ax</ng-template>
+  </address>
+<!--  <address *ngIf="p.id < 1000; else admin" #author>orhide.ru</address>-->
+<!--  <address #admin>sobolev.ax</address>-->
 </app-post>
