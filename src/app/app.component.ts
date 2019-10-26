@@ -37,4 +37,8 @@ export class AppComponent {
     },
   ];
   title = 'angular-learning';
+
+  addPost(post: Post): void {
+    this.posts.unshift(post);
+  }
 }

@@ -1,5 +1,18 @@
 <section class="row post-form">
-  <input type="text" placeholder="Title" class="post-form-element">
-  <input type="text" placeholder="Text" class="post-form-element">
-  <button class="post-form-element">Add post</button>
+  <input
+    type="text"
+    placeholder="Title"
+    class="post-form-element"
+    [(ngModel)]="title"
+  />
+  <input
+    type="text"
+    placeholder="Text"
+    class="post-form-element"
+    [(ngModel)]="text"
+  />
+  <button
+    class="post-form-element"
+    (click)="addPost()"
+  >Add post</button>
 </section>

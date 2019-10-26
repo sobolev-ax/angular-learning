@@ -1,7 +1,9 @@
 <div class="row">
   <h2>Angular Components</h2>
 </div>
-<app-post-form></app-post-form>
+<app-post-form
+  (add)="addPost($event)"
+></app-post-form>
 <app-post
   *ngFor="let p of posts"
   [post]="p"
