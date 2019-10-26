@@ -8,6 +8,9 @@ import { Post } from '../app.component';
 })
 export class PostFormComponent implements OnInit {
 
+  constructor() { }
+  static innerId = 1000;
+
   title = '';
   text = '';
 
@@ -18,8 +21,6 @@ export class PostFormComponent implements OnInit {
   @ViewChild('textInput', { static: false }) textRef: ElementRef;
   @ViewChild('addButton', { static: false }) addRef: ElementRef;
 
-  constructor() { }
-
   ngOnInit() {
   }
 
@@ -29,6 +30,7 @@ export class PostFormComponent implements OnInit {
     const post: Post = {
       title: this.title,
       text: this.text,
+      id: PostFormComponent.innerId = PostFormComponent.innerId + 1,
     };
 
     this.add.emit(post);
