@@ -9,7 +9,11 @@ export interface Post {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.sass'],
+
+  // Данная настройка позволяет делать перерендер компонента, только при изменении воходных импутов:
+  // когда меняется не сам объект, а ссылка на объект
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
   posts: Post[] = [
