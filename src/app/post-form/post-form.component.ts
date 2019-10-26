@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { Post } from '../app.component';
 
 @Component({
@@ -13,6 +13,10 @@ export class PostFormComponent implements OnInit {
 
 
   @Output() add: EventEmitter<Post> = new EventEmitter<Post>();
+
+  @ViewChild('titleInput', { static: false }) titleRef: ElementRef;
+  @ViewChild('textInput', { static: false }) textRef: ElementRef;
+  @ViewChild('addButton', { static: false }) addRef: ElementRef;
 
   constructor() { }
 
@@ -31,6 +35,33 @@ export class PostFormComponent implements OnInit {
 
     this.title = '';
     this.text = '';
+  }
+
+  showInstruction(): void {
+    const delay = 1500;
+    const step = 1000;
+
+    this.title = 'Введите название растения';
+    this.titleRef.nativeElement.focus();
+
+    setTimeout(() => {
+      this.text = 'Далее введите описание и нажмите кнопку Добавить растение';
+      this.textRef.nativeElement.focus();
+    },         delay);
+
+    setTimeout(() => {
+      this.textRef.nativeElement.focus();
+    },         delay + step * 1);
+
+    setTimeout(() => {
+      this.addRef.nativeElement.focus();
+    },         delay + step * 2);
+
+    setTimeout(() => {
+      this.text = '';
+      this.title = '';
+      this.titleRef.nativeElement.focus();
+    },         delay + step * 3);
   }
 
 }

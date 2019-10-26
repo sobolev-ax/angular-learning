@@ -4,15 +4,22 @@
     placeholder="Title"
     class="post-form-element"
     [(ngModel)]="title"
+    #titleInput
   />
   <input
     type="text"
     placeholder="Text"
     class="post-form-element"
     [(ngModel)]="text"
+    #textInput
   />
   <button
     class="post-form-element"
     (click)="addPost()"
-  >Add post</button>
+    #addButton
+  >Добавить растение</button>
+  <button
+    class="post-form-element"
+    (click)="showInstruction()"
+  >Инструкция</button>
 </section>
