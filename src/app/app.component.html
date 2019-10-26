@@ -2,6 +2,7 @@
   <h2>Angular Components</h2>
 </div>
 <app-post-form></app-post-form>
-<app-post></app-post>
-<app-post></app-post>
-<app-post></app-post>
+<app-post
+  *ngFor="let p of posts"
+  [post]="p"
+></app-post>
