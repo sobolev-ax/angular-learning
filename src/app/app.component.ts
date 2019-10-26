@@ -14,6 +14,9 @@ export interface Post {
   // Данная настройка позволяет делать перерендер компонента, только при изменении воходных импутов:
   // когда меняется не сам объект, а ссылка на объект
   // changeDetection: ChangeDetectionStrategy.OnPush
+
+  // Данная настройка делает стили глобальными
+  // encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
   posts: Post[] = [
